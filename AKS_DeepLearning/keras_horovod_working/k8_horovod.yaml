@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: zpod
+spec:
+  containers:
+  - image: zecharpy/keras-horovod:v1
+    name: zp
+    resources:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+    volumeMounts:
+      - name: azure
+        mountPath: /mnt/azure
+  volumes:
+  - name: azure
+    azureFile:
+      secretName: azure-secret
+      shareName: bloodcell
+      readOnly: false
