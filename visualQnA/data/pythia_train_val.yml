@@ -1,0 +1,261 @@
+datasets: vqa2
+log_foldername: vqa_vqa2_pythia_1234
+model: pythia
+model_attributes:
+  pythia:
+    classifier:
+      params:
+        img_hidden_dim: 5000
+        text_hidden_dim: 300
+      type: logit
+    image_feature_dim: 2048
+    image_feature_embeddings:
+    - modal_combine:
+        params:
+          dropout: 0
+          hidden_dim: 5000
+        type: non_linear_element_multiply
+      normalization: softmax
+      transform:
+        params:
+          out_dim: 1
+        type: linear
+    image_feature_encodings:
+    - params:
+        bias_file: detectron/fc6/fc7_b.pkl
+        model_data_dir: ../data/
+        weights_file: detectron/fc6/fc7_w.pkl
+      type: finetune_faster_rcnn_fpn_fc7
+    - params:
+        model_data_dir: ../data/
+      type: default
+    image_text_modal_combine:
+      params:
+        dropout: 0
+        hidden_dim: 5000
+      type: non_linear_element_multiply
+    losses:
+    - type: logit_bce
+    metrics:
+    - type: vqa_accuracy
+    model: pythia
+    model_data_dir: ../data/
+    text_embeddings:
+    - params:
+        conv1_out: 512
+        conv2_out: 2
+        dropout: 0
+        embedding_dim: 300
+        hidden_dim: 1024
+        kernel_size: 1
+        num_layers: 1
+        padding: 0
+      type: attention
+  pythia_image_only:
+    classifier:
+      params:
+        img_hidden_dim: 5000
+        text_hidden_dim: 300
+      type: logit
+    image_feature_dim: 2048
+    image_feature_embeddings:
+    - modal_combine:
+        params:
+          dropout: 0
+          hidden_dim: 5000
+        type: non_linear_element_multiply
+      normalization: softmax
+      transform:
+        params:
+          out_dim: 1
+        type: linear
+    image_feature_encodings:
+    - params:
+        bias_file: detectron/fc6/fc7_b.pkl
+        model_data_dir: ../data/
+        weights_file: detectron/fc6/fc7_w.pkl
+      type: finetune_faster_rcnn_fpn_fc7
+    - params:
+        model_data_dir: ../data/
+      type: default
+    image_text_modal_combine:
+      params:
+        dropout: 0
+        hidden_dim: 5000
+      type: non_linear_element_multiply
+    losses:
+    - type: logit_bce
+    metrics:
+    - type: vqa_accuracy
+    model_data_dir: ../data/
+    text_embeddings:
+    - params:
+        conv1_out: 512
+        conv2_out: 2
+        dropout: 0
+        embedding_dim: 300
+        hidden_dim: 1024
+        kernel_size: 1
+        num_layers: 1
+        padding: 0
+      type: attention
+  pythia_question_only:
+    classifier:
+      params:
+        img_hidden_dim: 5000
+        text_hidden_dim: 300
+      type: logit
+    image_feature_dim: 2048
+    image_feature_embeddings:
+    - modal_combine:
+        params:
+          dropout: 0
+          hidden_dim: 5000
+        type: non_linear_element_multiply
+      normalization: softmax
+      transform:
+        params:
+          out_dim: 1
+        type: linear
+    image_feature_encodings:
+    - params:
+        bias_file: detectron/fc6/fc7_b.pkl
+        model_data_dir: ../data/
+        weights_file: detectron/fc6/fc7_w.pkl
+      type: finetune_faster_rcnn_fpn_fc7
+    - params:
+        model_data_dir: ../data/
+      type: default
+    image_text_modal_combine:
+      params:
+        dropout: 0
+        hidden_dim: 5000
+      type: non_linear_element_multiply
+    losses:
+    - type: logit_bce
+    metrics:
+    - type: vqa_accuracy
+    model_data_dir: ../data/
+    text_embeddings:
+    - params:
+        conv1_out: 512
+        conv2_out: 2
+        dropout: 0
+        embedding_dim: 300
+        hidden_dim: 1024
+        kernel_size: 1
+        num_layers: 1
+        padding: 0
+      type: attention
+optimizer_attributes:
+  params:
+    eps: 1e-08
+    lr: 0.01
+    weight_decay: 0
+  type: Adamax
+task_attributes:
+  vqa:
+    dataset_attributes:
+      vqa2:
+        data_root_dir: ../data
+        fast_read: False
+        features_max_len: 100
+        image_depth_first: False
+        image_features:
+          test:
+          - coco/detectron_fix_100/fc6/test2015,coco/resnet152/test2015
+          train:
+          - coco/detectron_fix_100/fc6/train_val_2014,coco/resnet152/train_val_2014
+          - coco/detectron_fix_100/fc6/train_val_2014,coco/resnet152/train_val_2014
+          val:
+          - coco/detectron_fix_100/fc6/train_val_2014,coco/resnet152/train_val_2014
+        imdb_files:
+          test:
+          - imdb/vqa/imdb_test2015.npy
+          train:
+          - imdb/vqa/imdb_train2014.npy
+          - imdb/vqa/imdb_val2014.npy
+          val:
+          - imdb/vqa/imdb_minival2014.npy
+        processors:
+          answer_processor:
+            params:
+              num_answers: 10
+              preprocessor:
+                params: None
+                type: simple_word
+              vocab_file: vocabs/answers_vqa.txt
+            type: vqa_answer
+          bbox_processor:
+            params:
+              max_length: 50
+            type: bbox
+          context_processor:
+            params:
+              max_length: 50
+              model_file: .vector_cache/wiki.en.bin
+            type: fasttext
+          ocr_token_processor:
+            params: None
+            type: simple_word
+          text_processor:
+            params:
+              max_length: 14
+              vocab:
+                embedding_name: glove.6B.300d
+                type: intersected
+                vocab_file: vocabs/vocabulary_100k.txt
+              preprocessor:
+                type: simple_sentence
+                params: {}
+            type: vocab
+        return_info: True
+        use_ocr: False
+        use_ocr_info: False
+    dataset_size_proportional_sampling: True
+    dataset_type: test
+    datasets: vqa2
+tasks: vqa
+training_parameters:
+  batch_size: 128
+  clip_gradients: True
+  clip_norm_mode: all
+  data_parallel: False
+  device: cuda
+  distributed: False
+  evalai_inference: False
+  experiment_name: run
+  load_pretrained: False
+  local_rank: None
+  log_dir: ./logs
+  log_interval: 100
+  logger_level: info
+  lr_ratio: 0.1
+  lr_scheduler: True
+  lr_steps:
+  - 15000
+  - 18000
+  - 20000
+  - 21000
+  max_epochs: None
+  max_grad_l2_norm: 0.25
+  max_iterations: 22000
+  metric_minimize: False
+  monitored_metric: vqa_accuracy
+  num_workers: 0
+  patience: 4000
+  pin_memory: False
+  pretrained_mapping: None
+  resume: False
+  resume_file: /private/home/asg/pythia/pythia/checkpoint/apr22/pythia_vqa_train_val/vqa_vqa2_pythia_1234/pythia_train_val.pth
+  run_type: inference
+  save_dir: ./save
+  seed: 1234
+  should_early_stop: False
+  should_not_log: False
+  snapshot_interval: 1000
+  task_size_proportional_sampling: True
+  use_warmup: True
+  verbose_dump: False
+  warmup_factor: 0.2
+  warmup_iterations: 1000
