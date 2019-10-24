@@ -8,7 +8,7 @@ nbconvert
 networkx
 numpy==1.15.4
 pandas
-Pillow==5.2.0
+Pillow==6.2.0
 pydot==1.4.1
 pyOpenSSL==18.0.0
 scikit-learn
