@@ -1,0 +1,54 @@
+1  source activate py35
+   
+2. git clone https://github.com/facebookresearch/fastText.git
+< yougot fast test from 2 git clone https://github.com/facebookresearch/fastText.git > 
+
+cd fastText/
+   
+pip install -e .
+ 
+
+6  git clone https://github.com/facebookresearch/pythia.git pythia
+    
+7  cd pythia/
+    
+8  pip install -e .
+    
+9  ls
+   
+10  python -m pip install -r requirements.txt
+   
+11  pip install torch==1.1.0
+   
+12  pip install -e .
+   
+13  pip install ninja yacs cython matplotlib demjson
+   
+14  pip install git+https://github.com/cocodataset/cocoapi.git#subdirectory=PythonAPI
+   
+15  pip install -e .
+   
+
+
+git clone https://gitlab.com/meetshah1995/vqa-maskrcnn-benchmark.git
+cd /pythia/vqa-maskrcnn-benchmark
+# Compile custom layers and build mask-rcnn backbone, ensure you have previous pip install torch==1.1.0 
+python setup.py build
+python setup.py develop
+
+  
+19  cd ..
+   
+20  cd pythia/
+   
+21  cd data/
+   
+
+wget https://dl.fbaipublicfiles.com/pythia/data/answers_vqa.txt
+wget https://dl.fbaipublicfiles.com/pythia/data/vocabulary_100k.txt
+wget https://dl.fbaipublicfiles.com/pythia/detectron_model/detectron_model.pth 
+wget https://dl.fbaipublicfiles.com/pythia/pretrained_models/vqa2/pythia_train_val.pth
+wget https://dl.fbaipublicfiles.com/pythia/pretrained_models/vqa2/pythia_train_val.yml
+wget https://dl.fbaipublicfiles.com/pythia/detectron_model/detectron_model.yaml
+wget https://dl.fbaipublicfiles.com/pythia/data/detectron_weights.tar.gz
+tar xf /data/detectron_weights.tar.gz
