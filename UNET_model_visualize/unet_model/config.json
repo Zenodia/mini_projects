@@ -1,0 +1,212 @@
+{
+    "precision": 2,
+    "svg_scale": null,
+    "show_errors": false,
+    "svg_max_width": 800,
+    "vspace": 30,
+    "font_family": "monospace",
+    "border_width": "2",
+    "config_layers": {
+        "up1": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "input": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": [
+                64,
+                64
+            ],
+            "image_maxdim": null
+        },
+        "conv_2": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_6": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "pool2": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "up2": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_8": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "cat2": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_0": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "bnorm": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_4": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "pool1": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_1": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_7": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "cat1": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_5": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "conv_3": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        },
+        "output": {
+            "feature": 0,
+            "colormap": null,
+            "visible": true,
+            "image_pixels_per_unit": null,
+            "minmax": null,
+            "max_draw_units": 20,
+            "vshape": null,
+            "image_maxdim": null
+        }
+    },
+    "svg_rotate": false,
+    "font_size": 12,
+    "arrow_width": "2",
+    "activation": "linear",
+    "dashboard.features.columns": 3,
+    "dashboard.dataset": "Train",
+    "pixels_per_unit": 1,
+    "image_pixels_per_unit": 50,
+    "dashboard.features.bank": "",
+    "dashboard.features.scale": 1.0,
+    "image_maxdim": 200,
+    "border_color": "black",
+    "hspace": 150,
+    "arrow_color": "black",
+    "border_top": 25,
+    "show_targets": false,
+    "border_bottom": 25,
+    "svg_preferred_size": 400
+}
